@@ -10,8 +10,8 @@ namespace Address_Book_System
 
         public static void AddContact()
         {
-            Console.Write("How many contacts do you want to add? : ");
-            int contactsNum = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(" You have to enter your details here. \n");
+            int contactsNum = 1;
             while (contactsNum > 0)
             {
                 PersonsDetails person = new PersonsDetails();
@@ -49,7 +49,7 @@ namespace Address_Book_System
                 {
                     if (nameKey.ToLower() == contact.Firstname.ToLower())
                     {
-                        Console.WriteLine("\n First name-->{0}", contact.Firstname);
+                        Console.WriteLine(" First name-->{0}", contact.Firstname);
                         Console.WriteLine(" Last name-->{0}", contact.LastName);
                         Console.WriteLine(" Address-->{0}", contact.Address);
                         Console.WriteLine(" City-->{0}", contact.City);
@@ -61,7 +61,7 @@ namespace Address_Book_System
                     }
                     else
                     {
-                        Console.WriteLine("contact of the person {0} does not exist", nameKey);
+                        Console.WriteLine("\n Contact of the person {0} does not exist", nameKey);
                     }
                 }
             }
