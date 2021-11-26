@@ -10,27 +10,27 @@ namespace Address_Book_System
 
         public static void AddContact()
         {
-            Console.Write("How many contacts do you want to add? : ");
-            int contactsNum = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(" You have to enter your details here. \n");
+            int contactsNum = 1;
             while (contactsNum > 0)
             {
                 PersonsDetails person = new PersonsDetails();
 
-                Console.Write("Enter your First name : ");
+                Console.Write(" Enter your First name : ");
                 person.Firstname = Console.ReadLine();
-                Console.Write("Enter your Last name : ");
+                Console.Write(" Enter your Last name : ");
                 person.LastName = Console.ReadLine();
-                Console.Write("Enter your Address : ");
+                Console.Write(" Enter your Address : ");
                 person.Address = Console.ReadLine();
-                Console.Write("Enter your City : ");
+                Console.Write(" Enter your City : ");
                 person.City = Console.ReadLine();
-                Console.Write("Enter your State : ");
+                Console.Write(" Enter your State : ");
                 person.State = Console.ReadLine();
-                Console.Write("Enter your Zip code : ");
+                Console.Write(" Enter your Zip code : ");
                 person.ZipCode = Console.ReadLine();
-                Console.Write("Enter your Phone number : ");
+                Console.Write(" Enter your Phone number : ");
                 person.PhoneNumber = Console.ReadLine();
-                Console.Write("Enter your Email ID : ");
+                Console.Write(" Enter your Email ID : ");
                 person.Email = Console.ReadLine();
 
                 addressBook.Add(person);
@@ -48,7 +48,7 @@ namespace Address_Book_System
                 {
                     if (nameKey.ToLower() == contact.Firstname.ToLower())
                     {
-                        Console.WriteLine("\n First name-->{0}", contact.Firstname);
+                        Console.WriteLine(" First name-->{0}", contact.Firstname);
                         Console.WriteLine(" Last name-->{0}", contact.LastName);
                         Console.WriteLine(" Address-->{0}", contact.Address);
                         Console.WriteLine(" City-->{0}", contact.City);
@@ -60,7 +60,7 @@ namespace Address_Book_System
                     }
                     else
                     {
-                        Console.WriteLine("contact of the person {0} does not exist", nameKey);
+                        Console.WriteLine("\n Contact of the person {0} does not exist", nameKey);
                     }
                 }
             }
