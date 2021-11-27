@@ -6,68 +6,59 @@ namespace Address_Book_System
 {
     class AddressBook
     {
-        public static List<PersonsDetails> addressBook = new List<PersonsDetails>();
+        public static List<PersonsDetails> contacts = new List<PersonsDetails>();
 
+        public static Dictionary<string, List<PersonsDetails>> addressBook = new Dictionary<string, List<PersonsDetails>>(); 
+        
+        public static void AddTo(string name)
+        {
+            addressBook.Add(name, contacts);
+        }
         public static void AddContact()
         {
-            Console.Write("How many contacts do you want to add ? : ");
-            int contactsNum = Convert.ToInt32(Console.ReadLine());
-            while (contactsNum > 0)
-            {
-                PersonsDetails person = new PersonsDetails();
+           PersonsDetails person = new PersonsDetails();
+            
+            Console.Write(" Enter your First name : ");
+            person.FirstName = Console.ReadLine();
+            //Console.Write(" Enter your Last name : ");
+            //person.LastName = Console.ReadLine();
+            //Console.Write(" Enter your Address : ");
+            //person.Address = Console.ReadLine();
+            //Console.Write(" Enter your City : ");
+            //person.City = Console.ReadLine();
+            //Console.Write(" Enter your State : ");
+            //person.State = Console.ReadLine();
+            //Console.Write(" Enter your Zip Code : ");
+            //person.ZipCode = Console.ReadLine();
+            //Console.Write(" Enter your Phone Number : ");
+            //person.PhoneNumber = Console.ReadLine();
+            //Console.Write(" Enter your Email-ID : ");
+            //person.Email = Console.ReadLine();
 
-
-                Console.Write(" Enter your First name : ");
-                person.FirstName = Console.ReadLine();
-                Console.Write(" Enter your Last name : ");
-                person.LastName = Console.ReadLine();
-                Console.Write(" Enter your Address : ");
-                person.Address = Console.ReadLine();
-                Console.Write(" Enter your City : ");
-                person.City = Console.ReadLine();
-                Console.Write(" Enter your State : ");
-                person.State = Console.ReadLine();
-                Console.Write(" Enter your Zip Code : ");
-                person.ZipCode = Console.ReadLine();
-                Console.Write(" Enter your Phone Number : ");
-                person.PhoneNumber = Console.ReadLine();
-                Console.Write(" Enter your Email-ID : ");
-                person.Email = Console.ReadLine();
-
-                addressBook.Add(person);
-                Console.WriteLine("\n {0}'s contact succesfully added", person.FirstName);
-                contactsNum--;
-            }
+            contacts.Add(person);
+            Console.WriteLine("\n {0}'s contact succesfully added", person.FirstName);
         }
-        public static void Display()
+ 
+        public static void Details()
         {
-            if (addressBook.Count > 0)
+            if(contacts.Count == 0)
             {
-                Console.Write("\n Enter the name of the person to get all the contact details : ");
-                string nameKey = Console.ReadLine();
-                foreach (PersonsDetails contact in addressBook)
-                {
-                    if (nameKey.ToLower() == contact.FirstName.ToLower())
-                    {
-                        Console.WriteLine("\n First name-->{0}", contact.FirstName);
-                        Console.WriteLine(" Last name-->{0}", contact.LastName);
-                        Console.WriteLine(" Address-->{0}", contact.Address);
-                        Console.WriteLine(" City-->{0}", contact.City);
-                        Console.WriteLine(" State-->{0}", contact.State);
-                        Console.WriteLine(" Zip code-->{0}", contact.ZipCode);
-                        Console.WriteLine(" Phone number-->{0}", contact.PhoneNumber);
-                        Console.WriteLine(" E-Mail ID-->{0}", contact.Email);
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine(" Contact of the person {0} does not exist", nameKey);
-                    }
-                }
+                Console.WriteLine("Currently there are no people added in your address book.");
             }
             else
             {
-                Console.WriteLine(" Your address book is empty");
+                Console.WriteLine("Here is the list and details of all the contacts in your addressbook.");
+
+                foreach (var Detailing in contacts)
+                {
+                    Console.WriteLine("First name : " + Detailing.FirstName);
+                    Console.WriteLine("Last name : " + Detailing.LastName);
+                    Console.WriteLine("Address : " + Detailing.Address);
+                    Console.WriteLine("State : " + Detailing.State);
+                    Console.WriteLine("City : " + Detailing.City);
+                    Console.WriteLine("Zip Code : " + Detailing.ZipCode);
+                    Console.WriteLine("Phone number = " + Detailing.PhoneNumber);
+                }
             }
         }
     }
