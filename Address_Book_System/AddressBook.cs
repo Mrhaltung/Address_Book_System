@@ -65,7 +65,7 @@ namespace Address_Book_System
             }
         }
 
-        public void ViewByCityOrStateName()
+        public static void ViewByCityOrStateName()
         {
             Console.WriteLine("Please select your option: \n 1 :  To view all contacts by city, \n 2 : To view all contacts by state.");
             int choice = Convert.ToInt32(Console.ReadLine());
