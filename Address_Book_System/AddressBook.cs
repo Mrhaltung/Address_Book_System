@@ -20,20 +20,20 @@ namespace Address_Book_System
             
             Console.Write(" Enter your First name : ");
             person.FirstName = Console.ReadLine();
-            //Console.Write(" Enter your Last name : ");
-            //person.LastName = Console.ReadLine();
-            //Console.Write(" Enter your Address : ");
-            //person.Address = Console.ReadLine();
-            //Console.Write(" Enter your City : ");
-            //person.City = Console.ReadLine();
-            //Console.Write(" Enter your State : ");
-            //person.State = Console.ReadLine();
-            //Console.Write(" Enter your Zip Code : ");
-            //person.ZipCode = Console.ReadLine();
-            //Console.Write(" Enter your Phone Number : ");
-            //person.PhoneNumber = Console.ReadLine();
-            //Console.Write(" Enter your Email-ID : ");
-            //person.Email = Console.ReadLine();
+            Console.Write(" Enter your Last name : ");
+            person.LastName = Console.ReadLine();
+            Console.Write(" Enter your Address : ");
+            person.Address = Console.ReadLine();
+            Console.Write(" Enter your City : ");
+            person.City = Console.ReadLine();
+            Console.Write(" Enter your State : ");
+            person.State = Console.ReadLine();
+            Console.Write(" Enter your Zip Code : ");
+            person.ZipCode = Console.ReadLine();
+            Console.Write(" Enter your Phone Number : ");
+            person.PhoneNumber = Console.ReadLine();
+            Console.Write(" Enter your Email-ID : ");
+            person.Email = Console.ReadLine();
 
             contacts.Add(person);
             Console.WriteLine("\n {0}'s contact succesfully added", person.FirstName);
