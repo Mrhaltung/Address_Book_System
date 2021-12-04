@@ -18,7 +18,7 @@ namespace Address_Book_System
                 Console.Write("\n Enter name of Address Book : ");
                 string book = Console.ReadLine();
                 Console.WriteLine("\n Select the below option");
-                Console.WriteLine("1.Add Contact Details \n2.View Contant Details \n3.Edit Contant Details \n4.Delete Contact Details");
+                Console.WriteLine("\n1.Add Contact Details \n2.View Contant Details \n3.Search Duplicate ");
                 Console.Write("Enter Your Choice : ");
                 int num = Convert.ToInt32(Console.ReadLine());
 
