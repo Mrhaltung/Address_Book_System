@@ -20,20 +20,20 @@ namespace Address_Book_System
             
             Console.Write(" Enter your First name : ");
             person.FirstName = Console.ReadLine();
-            //Console.Write(" Enter your Last name : ");
-            //person.LastName = Console.ReadLine();
-            //Console.Write(" Enter your Address : ");
-            //person.Address = Console.ReadLine();
-            //Console.Write(" Enter your City : ");
-            //person.City = Console.ReadLine();
-            //Console.Write(" Enter your State : ");
-            //person.State = Console.ReadLine();
-            //Console.Write(" Enter your Zip Code : ");
-            //person.ZipCode = Console.ReadLine();
-            //Console.Write(" Enter your Phone Number : ");
-            //person.PhoneNumber = Console.ReadLine();
-            //Console.Write(" Enter your Email-ID : ");
-            //person.Email = Console.ReadLine();
+            Console.Write(" Enter your Last name : ");
+            person.LastName = Console.ReadLine();
+            Console.Write(" Enter your Address : ");
+            person.Address = Console.ReadLine();
+            Console.Write(" Enter your City : ");
+            person.City = Console.ReadLine();
+            Console.Write(" Enter your State : ");
+            person.State = Console.ReadLine();
+            Console.Write(" Enter your Zip Code : ");
+            person.ZipCode = Console.ReadLine();
+            Console.Write(" Enter your Phone Number : ");
+            person.PhoneNumber = Console.ReadLine();
+            Console.Write(" Enter your Email-ID : ");
+            person.Email = Console.ReadLine();
 
             contacts.Add(person);
             Console.WriteLine("\n {0}'s contact succesfully added", person.FirstName);
@@ -62,22 +62,43 @@ namespace Address_Book_System
             }
         }
 
-        public static int SearchDuplicate(List<PersonsDetails> contacts, PersonsDetails contactBook)
+        public static void SearchCity()
         {
+            Console.WriteLine("Please Enter Name of city");
+            string city = Console.ReadLine();
             foreach (var Details in contacts)
             {
-                var person = contacts.Find(p => p.FirstName.Equals(contactBook.FirstName));
+                var person = contacts.Find(p => p.City.Equals(city));
                 if (person != null)
                 {
-                    Console.WriteLine("Already this contact exist with same First name : " + person.FirstName);
-                    return 1;
+                    Console.WriteLine("{0} person in the {1}", Details.FirstName, city);
                 }
                 else
                 {
-                    return 0;
+
                 }
             }
-            return 0;
+
+        }
+
+        //This method for search person using state name
+        public static void SearchState()
+        {
+            Console.WriteLine("Please Enter Name of State");
+            string state = Console.ReadLine();
+            foreach (var Details in contacts)
+            {
+                var person = contacts.FindAll(p => p.State.Equals(state));
+                if (person != null)
+                {
+                    Console.WriteLine("{0} person in the {1}", Details.FirstName, state);
+                }
+                else
+                {
+
+                }
+            }
+
         }
     }
 }
