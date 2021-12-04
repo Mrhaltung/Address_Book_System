@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Address_Book_System
 {
@@ -21,7 +22,9 @@ namespace Address_Book_System
                 Console.Write("Enter Your Choice : ");
                 int num = Convert.ToInt32(Console.ReadLine());
 
-                while(key != 0)
+                
+
+                while (key != 0)
                 {
                     switch (num)
                     {
@@ -31,6 +34,9 @@ namespace Address_Book_System
                             break;
                         case 2:
                             AddressBook.Details();
+                            break;
+                        case 3:
+                            AddressBook.SearchDuplicate();
                             break;
                         default:
                             Console.Write("Choice correct option : ");

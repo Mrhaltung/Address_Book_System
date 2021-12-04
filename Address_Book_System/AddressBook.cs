@@ -6,9 +6,9 @@ namespace Address_Book_System
 {
     class AddressBook
     {
-        public static List<PersonsDetails> contacts = new List<PersonsDetails>();
+        private static List<PersonsDetails> contacts = new List<PersonsDetails>();
 
-        public static Dictionary<string, List<PersonsDetails>> addressBook = new Dictionary<string, List<PersonsDetails>>(); 
+        private static Dictionary<string, List<PersonsDetails>> addressBook = new Dictionary<string, List<PersonsDetails>>(); 
         
         public static void AddTo(string name)
         {
@@ -20,20 +20,20 @@ namespace Address_Book_System
             
             Console.Write(" Enter your First name : ");
             person.FirstName = Console.ReadLine();
-            Console.Write(" Enter your Last name : ");
-            person.LastName = Console.ReadLine();
-            Console.Write(" Enter your Address : ");
-            person.Address = Console.ReadLine();
-            Console.Write(" Enter your City : ");
-            person.City = Console.ReadLine();
-            Console.Write(" Enter your State : ");
-            person.State = Console.ReadLine();
-            Console.Write(" Enter your Zip Code : ");
-            person.ZipCode = Console.ReadLine();
-            Console.Write(" Enter your Phone Number : ");
-            person.PhoneNumber = Console.ReadLine();
-            Console.Write(" Enter your Email-ID : ");
-            person.Email = Console.ReadLine();
+            //Console.Write(" Enter your Last name : ");
+            //person.LastName = Console.ReadLine();
+            //Console.Write(" Enter your Address : ");
+            //person.Address = Console.ReadLine();
+            //Console.Write(" Enter your City : ");
+            //person.City = Console.ReadLine();
+            //Console.Write(" Enter your State : ");
+            //person.State = Console.ReadLine();
+            //Console.Write(" Enter your Zip Code : ");
+            //person.ZipCode = Console.ReadLine();
+            //Console.Write(" Enter your Phone Number : ");
+            //person.PhoneNumber = Console.ReadLine();
+            //Console.Write(" Enter your Email-ID : ");
+            //person.Email = Console.ReadLine();
 
             contacts.Add(person);
             Console.WriteLine("\n {0}'s contact succesfully added", person.FirstName);
@@ -60,6 +60,24 @@ namespace Address_Book_System
                     Console.WriteLine("Phone number = " + Detailing.PhoneNumber);
                 }
             }
+        }
+
+        public static int SearchDuplicate(List<PersonsDetails> contacts, PersonsDetails contactBook)
+        {
+            foreach (var Details in contacts)
+            {
+                var person = contacts.Find(p => p.FirstName.Equals(contactBook.FirstName));
+                if (person != null)
+                {
+                    Console.WriteLine("Already this contact exist with same First name : " + person.FirstName);
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            return 0;
         }
     }
 }
