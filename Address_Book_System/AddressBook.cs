@@ -144,7 +144,7 @@ namespace Address_Book_System
             }
         }
 
-        public void CountByCityOrStateName()
+        public static void CountByCityOrStateName()
         {
             Console.WriteLine("Select 1 : count person by city, \n2: Count person by state");
             int num = Convert.ToInt32(Console.ReadLine());
