@@ -66,9 +66,32 @@ namespace Address_Book_System
             }
         }
 
-        public void SortByFirstName(List<PersonsDetails> person)
+        public static void SortByFirstName(List<PersonsDetails> person)
         {
             contacts = person.OrderBy(p => p.FirstName).ToList();
+            Console.WriteLine();
+        }
+
+        public void SortByChoice(List<PersonsDetails> contactDetails)
+        {
+            Console.WriteLine("Select the option to sort the contct list : \n1 : City Name \n2 : State Name \n3. Zip Code");
+            int num = Convert.ToInt32(Console.ReadLine());
+            if (num == 1)
+            {
+                contacts = contactDetails.OrderBy(p => p.City).ToList();
+            }
+            if (num == 2)
+            {
+                contacts = contactDetails.OrderBy(p => p.State).ToList();
+            }
+            if (num == 3)
+            {
+                contacts = contactDetails.OrderBy(p => p.ZipCode).ToList();
+            }
+            else
+            {
+                Console.WriteLine("Invalid Selection,please select between 1 to 3 ");
+            }
         }
     }
 }
