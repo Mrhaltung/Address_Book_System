@@ -22,13 +22,10 @@ namespace Address_Book_System
                 Console.Write("Enter Your Choice : ");
                 int num = Convert.ToInt32(Console.ReadLine());
 
-                
-
                 while (key != 0)
                 {
                     switch (num)
                     {
-
                         case 1:
                             AddressBook.AddContact();
                             break;
