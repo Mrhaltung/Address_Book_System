@@ -32,12 +32,6 @@ namespace Address_Book_System
                         case 2:
                             AddressBook.Details();
                             break;
-                        case 3:
-                            AddressBook.SortByFirstName();
-                            break;
-                        case 4:
-                            AddressBook.SortByChoice();
-                            break;
                         default:
                             Console.Write("Choice correct option : ");
                             num = Convert.ToInt32(Console.ReadLine());
@@ -47,6 +41,8 @@ namespace Address_Book_System
                     key = Convert.ToInt32(Console.ReadLine());
                 }
                 AddressBook.AddTo(book);
+                AddressBook.WriteAddressBookUsingStreamWriter();
+                AddressBook.ReadAddressBookUsingStreamReader();
                 numberBook++;
             }
         }

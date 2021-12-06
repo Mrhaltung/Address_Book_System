@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -66,31 +67,44 @@ namespace Address_Book_System
             }
         }
 
-        public static void SortByFirstName(List<PersonsDetails> person)
+        public static void ReadAddressBookUsingStreamReader()
         {
-            contacts = person.OrderBy(p => p.FirstName).ToList();
-            Console.WriteLine();
+            Console.WriteLine("The contact List using StreamReader method ");
+
+            string path = @"D:\Program\Address_Book_System\Address_Book_System\Files\AddressBookWriterFile.txt";
+            using (StreamReader se = File.OpenText(path))
+            {
+                string s = " ";
+                while ((s = se.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+
+            }
         }
 
-        public void SortByChoice(List<PersonsDetails> contactDetails)
+        public static void WriteAddressBookUsingStreamWriter()
         {
-            Console.WriteLine("Select the option to sort the contct list : \n1 : City Name \n2 : State Name \n3. Zip Code");
-            int num = Convert.ToInt32(Console.ReadLine());
-            if (num == 1)
-            {
-                contacts = contactDetails.OrderBy(p => p.City).ToList();
-            }
-            if (num == 2)
-            {
-                contacts = contactDetails.OrderBy(p => p.State).ToList();
-            }
-            if (num == 3)
-            {
-                contacts = contactDetails.OrderBy(p => p.ZipCode).ToList();
-            }
-            else
-            {
-                Console.WriteLine("Invalid Selection,please select between 1 to 3 ");
+            string path = @"D:\Program\Address_Book_System\Address_Book_System\Files\AddressBookWriterFile.txt";
+            using (StreamWriter se = File.AppendText(path))
+            { 
+                foreach (KeyValuePair<string, List<PersonsDetails>> item in addressBook)
+                {
+                    foreach (var items in item.Value)
+                    {
+                        se.WriteLine("First Name -" + items.FirstName);
+                        se.WriteLine("Last Name -" + items.LastName);
+                        se.WriteLine("Address -" + items.Address);
+                        se.WriteLine("Phone Number - " + items.PhoneNumber);
+                        se.WriteLine("Email ID -" + items.Email);
+                        se.WriteLine("City -" + items.City);
+                        se.WriteLine("State -" + items.State);
+                        se.WriteLine("ZIP Code -" + items.ZipCode);
+                    }
+                    se.WriteLine("--------------------------------------------------------------");
+                }
+                se.Close();
+                Console.WriteLine(File.ReadAllText(path));
             }
         }
     }
