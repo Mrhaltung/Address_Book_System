@@ -41,8 +41,8 @@ namespace Address_Book_System
                     key = Convert.ToInt32(Console.ReadLine());
                 }
                 AddressBook.AddTo(book);
-                AddressBook.WriteAddressBookUsingStreamWriter();
-                AddressBook.ReadAddressBookUsingStreamReader();
+                AddressBook.CsvSerialise();
+                AddressBook.CsvDeserialise();
                 numberBook++;
             }
         }
